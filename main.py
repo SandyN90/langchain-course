@@ -1,30 +1,30 @@
 from dotenv import load_dotenv
-from langchain_core.prompts import PromptTemplate
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_openai import ChatOpenAI
+# from langchain_core.prompts import PromptTemplate
+# from langchain_google_genai import ChatGoogleGenerativeAI
+# from langchain_openai import ChatOpenAI
 from langchain_ollama import ChatOllama
 # from tools import search
 from langchain_core.messages import HumanMessage
 from langchain.agents import create_agent
 from langchain.tools import tool
-# from tavily import TavilyClient
+from tavily import TavilyClient
 from langchain_tavily import TavilySearch
 import os
 
 load_dotenv()
 
-# tavily = TavilyClient()
+tavily = TavilyClient()
 
-# @tool
-# def search(query: str) -> str:
-#     """Search the web for information
-#     Args:
-#         query: The query to search for
-#     """
-#     print(f'Searching the web for information about {query}')
-#     # return "Weather in Tokyo is sunny"
-#     results = tavily.search(query=query)
-#     return results
+@tool
+def search(query: str) -> str:
+    """Search the web for information
+    Args:
+        query: The query to search for
+    """
+    print(f'Searching the web for information about {query}')
+    # return "Weather in Tokyo is sunny"
+    results = tavily.search(query=query)
+    return results
 
 # model = ChatGoogleGenerativeAI(model="gemini-3.6-flash", api_key=os.getenv("GEMINI_API_KEY"))
 llm = ChatOllama(temperature=0, model="gemma4:e2b")
