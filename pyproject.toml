@@ -11,7 +11,9 @@ dependencies = [
     "black>=26.5.1",
     "isort>=9.0.2",
     "langchain>=1.4.3",
+    "langchain-core>=1.6.5",
     "langchain-ollama>=1.1.0",
+    "langsmith>=0.14.1",
     "python-dotenv>=1.2.3",
 ]
 
